@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DKC Header Preview</title>
+  <link rel="stylesheet" href="header.css">
+  <style>
+    /* preview-only styles: delete when using your real index.html */
+    body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; color: #121824; }
+    .demo { min-height: 90vh; display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; }
+    .demo:nth-of-type(even) { background: #F8FAFC; }
+    #searchLog { font-size: .9rem; font-weight: 400; color: #5B6678; }
+  </style>
+</head>
+<body>
+
+<!-- ============ HEADER START: copy everything down to HEADER END into index.html ============ -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="announce">
+  <div class="hdr-container">
+    <div class="announce-rotator" id="announceRotator" role="region" aria-roledescription="carousel" aria-label="Store announcements">
+      <div class="announce-track">
+        <p class="announce-slide is-active">Your local tech partner in General Santos City</p>
+        <p class="announce-slide">Please contact this number: <a href="tel:+639706151069">0970-615-1069</a></p>
+        <p class="announce-slide">Open Monday – Saturday, 8:00 AM – 5:00 PM</p>
+      </div>
+      <div class="announce-dots" role="group" aria-label="Choose announcement"></div>
+    </div>
+    <a class="announce-link" href="#contact">
+      Visit our store
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="hdr-container hdr-main">
+
+    <a class="brand" href="#home" aria-label="DKC Computer Trading and Services, back to top">
+      <span class="brand-mark">DKC<span>.</span></span>
+      <span class="brand-text">Computer Trading<small>&amp; Services</small></span>
+    </a>
+
+    <form class="hdr-search" id="headerSearch" role="search" action="#featured">
+      <label class="visually-hidden" for="headerSearchInput">Search products, parts, and services</label>
+      <input id="headerSearchInput" type="search" name="q" placeholder="Search products, parts, and services…" autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+    </form>
+
+    <div class="hdr-actions">
+      <a class="hdr-phone" href="tel:+639706151069" aria-label="Call us at 0970 615 1069">
+        <span class="hdr-phone-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        </span>
+        <span class="hdr-phone-text"><small>Call us today</small><strong>0970 615 1069</strong></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span class="nav-toggle-bars"></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+    <div class="hdr-container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#categories">Shop by Category</a></li>
+        <li><a class="nav-link" href="#featured">Featured Products</a></li>
+        <li><a class="nav-link" href="#services">IT Services</a></li>
+        <li><a class="nav-link" href="#about">About DKC</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn-quote" href="#contact">
+        Request a Quote
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- ============ HEADER END ============ -->
+
+<main id="main">
+  <section class="demo" id="home">Home (hero)</section>
+  <section class="demo" id="categories">Shop by Category</section>
+  <section class="demo" id="featured"><div>Featured Products<br><span id="searchLog"></span></div></section>
+  <section class="demo" id="services">IT Services</section>
+  <section class="demo" id="about">About DKC</section>
+  <section class="demo" id="contact">Contact</section>
+</main>
+
+<script src="header.js" defer></script>
+<script>
+  document.addEventListener('dkc:search', e => {
+    document.getElementById('searchLog').textContent = 'Search received: "' + e.detail.query + '"';
+  });
+</script>
+</body>
+</html>
