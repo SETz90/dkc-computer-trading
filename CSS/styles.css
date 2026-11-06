@@ -385,3 +385,9 @@ html {
   .announce .hdr-container { justify-content: center; text-align: center; padding-block: .4rem; }
   .brand-text { display: none; }
 }
+    /* preview-only styles: delete when using your real index.html */
+    body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; color: #121824; }
+    .demo { min-height: 90vh; display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; }
+    .demo:nth-of-type(even) { background: #F8FAFC; }
+    #searchLog { font-size: .9rem; font-weight: 400; color: #5B6678; 
+    }

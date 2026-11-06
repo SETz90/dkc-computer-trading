@@ -3,15 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DKC Header Preview</title>
-  <link rel="stylesheet" href="header.css">
-  <style>
-    /* preview-only styles: delete when using your real index.html */
-    body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; color: #121824; }
-    .demo { min-height: 90vh; display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; }
-    .demo:nth-of-type(even) { background: #F8FAFC; }
-    #searchLog { font-size: .9rem; font-weight: 400; color: #5B6678; }
-  </style>
+  <title>DKC Computer Trading and Services</title>
+  <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
 
@@ -92,7 +85,7 @@
   <section class="demo" id="contact">Contact</section>
 </main>
 
-<script src="header.js" defer></script>
+<script src="JS/script.js" defer></script>
 <script>
   document.addEventListener('dkc:search', e => {
     document.getElementById('searchLog').textContent = 'Search received: "' + e.detail.query + '"';
