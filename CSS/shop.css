@@ -1,5 +1,3 @@
-:where(body) { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; color: #121824; background: #fff; }
-
 .shop-sample { background: #FFF4F4; border-bottom: 1px solid #FFD6D6; color: #8A1F1F; font-size: .8125rem; }
 .shop-sample .hdr-container { padding-block: .6rem; }
 
@@ -78,14 +76,6 @@
 .pd-note { font-size: .75rem; color: var(--dkc-muted); }
 .pd-close { position: absolute; top: .6rem; right: .6rem; width: 34px; height: 34px; border: 0; background: #fff; font-size: 1rem; cursor: pointer; }
 
-/* footer */
-.shop-footer { background: var(--dkc-charcoal); color: #B8C2D2; font-size: .8125rem; }
-.shop-footer .hdr-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; padding-block: 2.5rem; }
-.shop-footer h2 { margin: 0 0 .6rem; font-size: .8125rem; color: #fff; }
-.shop-footer p { margin: 0 0 .35rem; line-height: 1.6; }
-.shop-footer a { color: #7FB0FF; text-decoration: none; }
-.shop-footer a:hover { color: #fff; }
-.shop-footer small { display: block; padding: 1rem; border-top: 1px solid rgba(255, 255, 255, .08); text-align: center; }
 
 @media (max-width: 900px) {
   .shop-layout { grid-template-columns: 1fr; gap: 1rem; padding-block: 1.25rem 3rem; }

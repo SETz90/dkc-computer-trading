@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DKC Computer Trading and Services</title>
+  <title>DKC Computer Trading &amp; Services | General Santos City</title>
+  <meta name="description" content="Computer hardware, PCs, laptops, networking, CCTV, solar, and repair services from DKC Computer Trading and Services in General Santos City.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/shop.css">
 </head>
 <body>
 
-<!-- ============ HEADER START: copy everything down to HEADER END into index.html ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 17h.01M8 10a6 6 0 0 1 8 0M5 7a10 10 0 0 1 14 0"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="2" y="7" width="14" height="10" rx="2"/><path d="m16 11 6-3v8l-6-3"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.7-.7-2.6z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9a14 14 0 0 1 18 0M6 12.5a9.5 9.5 0 0 1 12 0M9 16a5 5 0 0 1 6 0"/><path d="M12 19.5h.01"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+</defs></svg>
+
+<!-- ============ HEADER START (same block as shop.html) ============ -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <div class="announce">
@@ -21,7 +37,7 @@
       </div>
       <div class="announce-dots" role="group" aria-label="Choose announcement"></div>
     </div>
-    <a class="announce-link" href="#contact">
+    <a class="announce-link" href="index.html#contact">
       Visit our store
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
@@ -31,12 +47,12 @@
 <header class="site-header" id="siteHeader">
   <div class="hdr-container hdr-main">
 
-    <a class="brand" href="#home" aria-label="DKC Computer Trading and Services, back to top">
+    <a class="brand" href="index.html" aria-label="DKC Computer Trading and Services, back to top">
       <span class="brand-mark">DKC<span>.</span></span>
       <span class="brand-text">Computer Trading<small>&amp; Services</small></span>
     </a>
 
-    <form class="hdr-search" id="headerSearch" role="search" action="#featured">
+    <form class="hdr-search" id="headerSearch" role="search" action="shop.html" method="get">
       <label class="visually-hidden" for="headerSearchInput">Search products, parts, and services</label>
       <input id="headerSearchInput" type="search" name="q" placeholder="Search products, parts, and services…" autocomplete="off">
       <button type="submit" aria-label="Search">
@@ -60,14 +76,18 @@
   <nav class="site-nav" id="siteNav" aria-label="Main navigation">
     <div class="hdr-container">
       <ul class="nav-list">
-        <li><a class="nav-link" href="#home">Home</a></li>
-        <li><a class="nav-link" href="#categories">Shop by Category</a></li>
-        <li><a class="nav-link" href="#featured">Featured Products</a></li>
-        <li><a class="nav-link" href="#services">IT Services</a></li>
-        <li><a class="nav-link" href="#about">About DKC</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
+        <li><a class="nav-link" href="index.html#home">Home</a></li>
+        <li class="has-dropdown">
+          <a class="nav-link" href="shop.html">Shop by Category</a>
+          <button class="nav-caret" type="button" aria-expanded="false" aria-controls="catMenu" aria-label="Show product categories"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="mega" id="catMenu"></div>
+        </li>
+        <li><a class="nav-link" href="index.html#featured">Featured Products</a></li>
+        <li><a class="nav-link" href="index.html#services">IT Services</a></li>
+        <li><a class="nav-link" href="index.html#about">About DKC</a></li>
+        <li><a class="nav-link" href="index.html#contact">Contact</a></li>
       </ul>
-      <a class="btn-quote" href="#contact">
+      <a class="btn-quote" href="index.html#contact">
         Request a Quote
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
@@ -77,19 +97,170 @@
 <!-- ============ HEADER END ============ -->
 
 <main id="main">
-  <section class="demo" id="home">Home (hero)</section>
-  <section class="demo" id="categories">Shop by Category</section>
-  <section class="demo" id="featured"><div>Featured Products<br><span id="searchLog"></span></div></section>
-  <section class="demo" id="services">IT Services</section>
-  <section class="demo" id="about">About DKC</section>
-  <section class="demo" id="contact">Contact</section>
+
+  <section class="hero" id="home">
+    <div class="hdr-container">
+      <div>
+        <p class="eyebrow">DKC Computer Trading &amp; Services</p>
+        <h1>Powering your <span>digital world.</span></h1>
+        <p class="hero-lead">From the right computer parts to complete business technology solutions, DKC helps you build, connect, and grow.</p>
+        <div class="hero-cta">
+          <a class="btn btn-blue" href="shop.html">Explore Products <svg class="ic sm"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#services">Explore Our Services</a>
+        </div>
+        <ul class="trust">
+          <li><b>Your trusted local tech partner</b>Serving General Santos City</li>
+          <li><b>Hardware and IT solutions</b>Together in one place</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 520 400" role="img" aria-label="Illustration of a desktop computer and monitor">
+          <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A57E8"/><stop offset="1" stop-color="#5B9BFF"/></linearGradient></defs>
+          <circle cx="260" cy="200" r="175" fill="none" stroke="#2F7BFF" stroke-opacity=".35"/>
+          <circle cx="260" cy="200" r="135" fill="none" stroke="#2F7BFF" stroke-opacity=".2"/>
+          <rect x="60" y="120" width="240" height="160" rx="8" fill="#1B2538" stroke="#2B3A55" stroke-width="2"/>
+          <rect x="74" y="134" width="212" height="122" fill="url(#hg)"/>
+          <text x="90" y="178" fill="#fff" font-size="15" font-weight="700" letter-spacing="2" font-family="Space Grotesk, sans-serif">BUILD</text>
+          <text x="90" y="208" fill="#fff" font-size="26" font-weight="700" font-family="Space Grotesk, sans-serif">BETTER.</text>
+          <path d="M150 280h60l10 30h-80z" fill="#2B3A55"/>
+          <rect x="330" y="100" width="110" height="210" rx="8" fill="#1B2538" stroke="#2B3A55" stroke-width="2"/>
+          <g fill="none" stroke="#2F7BFF" stroke-width="3"><circle cx="385" cy="150" r="20"/><circle cx="385" cy="205" r="20"/><circle cx="385" cy="260" r="20"/></g>
+          <g fill="#5B9BFF"><circle cx="385" cy="150" r="6"/><circle cx="385" cy="205" r="6"/><circle cx="385" cy="260" r="6"/></g>
+        </svg>
+        <span class="hero-tag hero-tag--a">PC Components</span>
+        <span class="hero-tag hero-tag--b">IT Solutions</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="What we offer">
+    <ul class="hdr-container">
+      <li><svg class="ic"><use href="#i-chip"/></svg><div><strong>Computer Hardware</strong><small>Parts, PCs &amp; accessories</small></div></li>
+      <li><svg class="ic"><use href="#i-net"/></svg><div><strong>Network Solutions</strong><small>Connect your business</small></div></li>
+      <li><svg class="ic"><use href="#i-cam"/></svg><div><strong>Security Systems</strong><small>CCTV installation</small></div></li>
+      <li><svg class="ic"><use href="#i-tool"/></svg><div><strong>Technical Support</strong><small>Setup, repair &amp; maintenance</small></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="categories">
+    <div class="hdr-container">
+      <div class="sec-head">
+        <div><p class="eyebrow eyebrow--blue">Find what you need</p><h2>Shop by <em>category.</em></h2></div>
+        <p>Explore essential hardware and technology for home, school, gaming, and business.</p>
+      </div>
+      <div class="cat-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <section class="sec sec--gray" id="featured">
+    <div class="hdr-container">
+      <div class="sec-head">
+        <div><p class="eyebrow eyebrow--blue">Built for your next upgrade</p><h2>Featured <em>products.</em></h2></div>
+        <p>Looking for a specific item? Contact our team for current models, availability, and pricing.</p>
+      </div>
+      <div class="shop-grid" id="featuredGrid"></div>
+      <p class="sample-line"><span class="pc-sample">Sample</span> Products, prices, and stock shown are placeholders until DKC’s official inventory list is added. <a href="shop.html">View all products</a></p>
+    </div>
+  </section>
+
+  <section class="sec sec--dark" id="services">
+    <div class="hdr-container">
+      <div class="sec-head">
+        <div><p class="eyebrow">More than a computer store</p><h2>Technology services. <em>Done right.</em></h2></div>
+        <p>Practical technical solutions for homes, internet cafés, offices, and commercial spaces.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc"><span class="svc-ic"><svg class="ic"><use href="#i-wifi"/></svg></span><h3>Pisonet &amp; PisoWiFi</h3>
+          <ul><li>Complete installation</li><li>Hardware supply</li><li>System configuration</li><li>Maintenance</li></ul>
+          <a href="#contact" data-need="Pisonet & PisoWiFi">Request service <svg class="ic sm"><use href="#i-arrow"/></svg></a></article>
+        <article class="svc"><span class="svc-ic"><svg class="ic"><use href="#i-net"/></svg></span><h3>Network &amp; Cabling</h3>
+          <ul><li>Fiber installation</li><li>Structured network cabling</li><li>LAN infrastructure</li><li>Diskless setup for computer shops and LAN cafés</li></ul>
+          <a href="#contact" data-need="Network & Cabling">Request service <svg class="ic sm"><use href="#i-arrow"/></svg></a></article>
+        <article class="svc"><span class="svc-ic"><svg class="ic"><use href="#i-cam"/></svg></span><h3>CCTV &amp; Security</h3>
+          <ul><li>Multi-camera CCTV installations</li><li>Security system configuration</li><li>Surveillance solutions</li></ul>
+          <a href="#contact" data-need="CCTV & Security">Request service <svg class="ic sm"><use href="#i-arrow"/></svg></a></article>
+        <article class="svc"><span class="svc-ic"><svg class="ic"><use href="#i-sun"/></svg></span><h3>Solar Energy Systems</h3>
+          <ul><li>SNADI solar inverters</li><li>Battery backup systems</li><li>Solar power solutions</li></ul>
+          <a href="#contact" data-need="Solar Energy Systems">Request service <svg class="ic sm"><use href="#i-arrow"/></svg></a></article>
+        <article class="svc"><span class="svc-ic"><svg class="ic"><use href="#i-tool"/></svg></span><h3>Computer Repair</h3>
+          <ul><li>Hardware diagnostics</li><li>Component replacement</li><li>Computer maintenance</li><li>Troubleshooting</li></ul>
+          <a href="#contact" data-need="Computer Repair">Request service <svg class="ic sm"><use href="#i-arrow"/></svg></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="hdr-container about">
+      <div class="about-card" aria-hidden="true"><span class="about-badge">Local<br>tech<br>partner</span><strong>DKC<i>.</i></strong><small>DTECH Gensan</small></div>
+      <div>
+        <p class="eyebrow eyebrow--blue">About DKC</p>
+        <h2 class="about-title">Technology that moves you <em>forward.</em></h2>
+        <p>DKC Computer Trading and Services, also affiliated with DTECH Gensan, brings computer products and practical IT solutions together in one local destination.</p>
+        <p>Whether you’re upgrading a personal computer, setting up a network, or planning a security system, our team is ready to help you find a solution that fits your requirements.</p>
+        <a class="link-arrow" href="#contact">Get in touch with our team <svg class="ic sm"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--gray" id="contact">
+    <div class="hdr-container contact">
+      <div>
+        <p class="eyebrow eyebrow--blue">Let’s talk about your project</p>
+        <h2 class="about-title">Have a project in <em>mind?</em></h2>
+        <p>Tell us what you need. Send an inquiry and our team can discuss the right products or technical solution for your requirements.</p>
+        <address class="contact-list">
+          <p><svg class="ic"><use href="#i-pin"/></svg><span>Ground Floor, Velasquez Building (Former Polyclinic Bldg.), Pendatun Avenue, Brgy. Dadiangas North, General Santos City, Philippines</span></p>
+          <p><b>Mobile</b><a href="tel:+639706151069">0970-615-1069</a></p>
+          <p><b>Landline</b><a href="tel:+63838776641">083-8776641</a></p>
+          <p><b>Email</b><a href="mailto:kaex21@gmail.com">kaex21@gmail.com</a></p>
+          <p><b>Hours</b><span>Monday – Saturday, 8:00 AM – 5:00 PM</span></p>
+        </address>
+        <div class="map">
+          <iframe title="DKC store location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Velasquez+Building+Pendatun+Avenue+Dadiangas+North+General+Santos+City&amp;output=embed"></iframe>
+          <a class="link-arrow" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Velasquez+Building+Pendatun+Avenue+Dadiangas+North+General+Santos+City">Open in Google Maps <svg class="ic sm"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <form class="quote" id="quoteForm">
+        <h3>Request a quotation</h3>
+        <p class="quote-sub">Complete the details below to prepare your inquiry.</p>
+        <label for="qName">Your name</label>
+        <input id="qName" name="name" required autocomplete="name" placeholder="Enter your full name">
+        <label for="qContact">Contact number or email</label>
+        <input id="qContact" name="contact" required autocomplete="email" placeholder="How can we reach you?">
+        <label for="qNeed">What do you need?</label>
+        <select id="qNeed" name="need" required>
+          <option value="">Select a category</option>
+          <option>Computer hardware / products</option>
+          <option>Pisonet & PisoWiFi</option>
+          <option>Network & Cabling</option>
+          <option>CCTV & Security</option>
+          <option>Solar Energy Systems</option>
+          <option>Computer Repair</option>
+          <option>Other</option>
+        </select>
+        <label for="qDetails">Project details</label>
+        <textarea id="qDetails" name="details" rows="4" placeholder="Tell us a little about what you need…"></textarea>
+        <button class="btn btn-blue" type="submit">Prepare inquiry <svg class="ic sm"><use href="#i-arrow"/></svg></button>
+        <p class="quote-note">This opens your email app with the inquiry details. It doesn’t send or store information on this website.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
+<footer class="site-footer">
+  <div class="hdr-container">
+    <div><h2>DKC Computer Trading and Services</h2><p>Your local destination for computer hardware and dependable IT solutions in General Santos City.</p><p>Also affiliated with DTECH Gensan.</p>
+      <p class="social"><a href="#" aria-label="Facebook (link coming soon)">Facebook</a> · <a href="#" aria-label="Messenger (link coming soon)">Messenger</a></p></div>
+    <div><h2>Explore</h2><p><a href="shop.html">Shop all products</a></p><p><a href="index.html#featured">Featured products</a></p><p><a href="index.html#services">IT services</a></p><p><a href="index.html#about">About DKC</a></p></div>
+    <div><h2>Contact</h2><p><a href="tel:+639706151069">0970-615-1069</a></p><p><a href="tel:+63838776641">083-8776641</a></p><p><a href="mailto:kaex21@gmail.com">kaex21@gmail.com</a></p><p>Ground Floor, Velasquez Building (Former Polyclinic Bldg.), Pendatun Avenue, Brgy. Dadiangas North, General Santos City</p></div>
+    <div><h2>Store hours</h2><p>Monday – Saturday<br>8:00 AM – 5:00 PM</p><p><a href="#contact">Request a quotation</a></p></div>
+  </div>
+  <small>© 2026 DKC Computer Trading and Services. All rights reserved.</small>
+</footer>
+
+<script src="JS/products.js"></script>
 <script src="JS/script.js" defer></script>
-<script>
-  document.addEventListener('dkc:search', e => {
-    document.getElementById('searchLog').textContent = 'Search received: "' + e.detail.query + '"';
-  });
-</script>
+<script src="JS/home.js" defer></script>
 </body>
 </html>
