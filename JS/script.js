@@ -1,8 +1,3 @@
-/* =========================================================
-   DKC HEADER & NAVIGATION BEHAVIOUR
-   Paste into script.js (replace the old menu code), or load
-   as its own file with <script src="header.js" defer>.
-   ========================================================= */
 (() => {
   'use strict';
 
@@ -24,9 +19,31 @@
   if ('ResizeObserver' in window) new ResizeObserver(syncHeaderHeight).observe(header);
   else window.addEventListener('resize', syncHeaderHeight);
 
+  /* ---- 1b. "Shop by Category" dropdown, built from products.js ---- */
+  const catItem = nav.querySelector('.has-dropdown');
+  const catMenu = document.getElementById('catMenu');
+  const caret = catItem && catItem.querySelector('.nav-caret');
+  const data = window.DKC_DATA;
+  if (catMenu && data) {
+    catMenu.innerHTML = data.categories.map((c) =>
+      '<div class="mega-col"><a class="mega-title" href="shop.html?category=' + c.id + '">' + c.name + '</a><ul>' +
+      c.subs.map((s) => '<li><a href="shop.html?category=' + c.id + '&sub=' + s.id + '">' + s.name + '</a></li>').join('') +
+      '</ul></div>').join('');
+  }
+  function closeDrop() {
+    if (!catItem) return;
+    catItem.classList.remove('is-open');
+    if (caret) caret.setAttribute('aria-expanded', 'false');
+  }
+  if (caret) caret.addEventListener('click', () => {
+    const open = catItem.classList.toggle('is-open');
+    caret.setAttribute('aria-expanded', String(open));
+  });
+
   /* ---- 2. Mobile menu ---- */
   function setMenu(open, returnFocus) {
     nav.classList.toggle('is-open', open);
+    if (!open) closeDrop();
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     if (returnFocus) toggle.focus();
@@ -38,19 +55,22 @@
     if (e.target.closest('a')) setMenu(false);            // close after choosing a link
   });
   document.addEventListener('click', (e) => {
-    if (mobileQuery.matches && !header.contains(e.target)) setMenu(false); // click outside
+    if (!header.contains(e.target)) { closeDrop(); if (mobileQuery.matches) setMenu(false); } // click outside
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('is-open')) setMenu(false, true);
+    if (e.key !== 'Escape') return;
+    closeDrop();
+    if (nav.classList.contains('is-open')) setMenu(false, true);
   });
   mobileQuery.addEventListener('change', () => setMenu(false)); // reset when resizing to desktop
 
   /* ---- 3. Shadow once the page scrolls + "last link" at page bottom ---- */
   const sections = new Map();     // section element -> nav link
   links.forEach((link) => {
-    const id = (link.getAttribute('href') || '').replace('#', '');
-    const el = id && document.getElementById(id);
-    if (el) sections.set(el, link);
+    const u = new URL(link.getAttribute('href') || '', location.href);
+    const norm = (p) => p.replace(/index\.html$/, '');
+    const el = u.hash && norm(u.pathname) === norm(location.pathname) && document.getElementById(u.hash.slice(1));
+    if (el) sections.set(el, link);   // only same-page #links take part in scroll-spy
   });
 
   function setActive(activeLink) {
@@ -69,7 +89,7 @@
     requestAnimationFrame(() => {
       header.classList.toggle('is-scrolled', window.scrollY > 8);
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-      if (atBottom && links.length) setActive(links[links.length - 1]);
+      if (atBottom && sections.size) setActive(links[links.length - 1]);
       ticking = false;
     });
   }
@@ -87,18 +107,17 @@
   }
 
   /* ---- 5. Search ----
-     No backend yet, so submitting scrolls to the product section and
-     broadcasts a "dkc:search" event. The Phase 2 product catalog will
-     listen for that event and filter the grid. */
+     On shop.html the grid filters in place (via the "dkc:search" event).
+     On any other page the form submits normally to shop.html?q=... */
   if (searchForm && searchInput) {
     searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
       const query = searchInput.value.trim();
-      if (!query) { searchInput.focus(); return; }
-      document.dispatchEvent(new CustomEvent('dkc:search', { detail: { query } }));
-      const target = document.getElementById('featured');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMenu(false);
+      if (!query) { e.preventDefault(); searchInput.focus(); return; }
+      if (document.getElementById('shopGrid')) {
+        e.preventDefault();
+        document.dispatchEvent(new CustomEvent('dkc:search', { detail: { query } }));
+        setMenu(false);
+      }
     });
   }
 })();
